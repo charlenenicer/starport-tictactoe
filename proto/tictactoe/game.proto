@@ -1,0 +1,12 @@
+syntax = "proto3";
+package charlenenicer.tictactoe.tictactoe;
+option go_package = "github.com/charlenenicer/tictactoe/x/tictactoe/types";
+
+message Game {
+  string creator = 1;
+  string challenger = 2;
+  string turn = 3;
+  repeated string board = 4;
+  string status = 5; 
+  uint64 id = 6;
+}

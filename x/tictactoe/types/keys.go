@@ -15,6 +15,9 @@ const (
 
 	// MemStoreKey defines the in-memory store key
 	MemStoreKey = "mem_tictactoe"
+
+	GameKey      = "Game-value-"
+	GameCountKey = "Game-count-"
 )
 
 func KeyPrefix(p string) []byte {

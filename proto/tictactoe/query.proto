@@ -1,6 +1,7 @@
 syntax = "proto3";
 package charlenenicer.tictactoe.tictactoe;
 
+import "game/game.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
@@ -9,7 +10,22 @@ option go_package = "github.com/charlenenicer/tictactoe/x/tictactoe/types";
 
 // Query defines the gRPC querier service.
 service Query {
-    // this line is used by starport scaffolding # 2
+    // Queries a list of games items.
+	rpc Games(QueryGamesRequest) returns (QueryGamesResponse) {
+		option (google.api.http).get = "/charlenenicer/tictactoe/tictactoe/games";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+message QueryGamesRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryGamesResponse {
+  repeated Game Game = 1;
+
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
 // this line is used by starport scaffolding # 3
